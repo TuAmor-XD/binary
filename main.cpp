@@ -25,6 +25,18 @@ int main() {
     inorder(root);
     cout << endl;
 
+    BinaryTreeNode* root = new BinaryTreeNode("A");
+    root->left = new BinaryTreeNode("B");
+    root->right = new BinaryTreeNode("C");
+    root->left->left = new BinaryTreeNode("D");
+    root->left->right = new BinaryTreeNode("E");
+
+    cout << "Preorder Traversal: ";
+    preorder(root);
+    cout << endl;
+
+    return 0;
+
     return 0;
 }
 
@@ -35,4 +47,14 @@ void inorder(BinaryTreeNode* root) {
     inorder(root->left);
     cout << root->data << " ";
     inorder(root->right);
+}
+
+
+void preorder(BinaryTreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
 }
